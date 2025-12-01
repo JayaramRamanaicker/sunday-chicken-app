@@ -9,7 +9,7 @@ import { getAuthToken } from './authService';
 const USE_MOCK_BACKEND = false; 
 
 // Use environment variable or fallback to localhost
-const API_BASE_URL = 'http://localhost:5001/records';
+const API_BASE_URL = 'https://sunday-backend-5e30.onrender.com/records';
 const STORAGE_KEY = 'poultry_profit_data';
 
 // Helper to simulate network delay for Mock mode
