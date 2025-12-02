@@ -9,10 +9,17 @@ const PORT = 5001;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/sundays_chicken')
+// DIRECT CONNECTION TO CLOUD DATABASE
+const mongoUrl = 'mongodb+srv://jayaramr200_db_user:ChickenShop2025@cluster0.pzw4lxd.mongodb.net/sundays_chicken?appName=Cluster0';
+
+console.log("Attempting to connect to database...");
+
+mongoose.connect(mongoUrl)
   .then(() => console.log('✅ Connected to MongoDB successfully'))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
+  .catch(err => {
+    console.error('❌ MongoDB Connection Error:', err);
+    process.exit(1); // Stop the server if DB fails
+  });
 
 // Data Structure
 const RecordSchema = new mongoose.Schema({
